@@ -1,0 +1,2 @@
+Bundle analysis would run here in a properly configured environment
+Run 'npx expo export --clear' manually for detailed analysis

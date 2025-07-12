@@ -1,0 +1,25 @@
+# .cursorrules
+- This is a React Native project using Expo
+- Use TypeScript for all files
+- Use NativeWind for styling (Tailwind CSS for React Native)
+- Use Zustand for state management
+- Use React Query for server state management
+- Follow React Native best practices and performance guidelines
+- Use functional components with hooks
+- Prefer const assertions and proper typing
+- Keep components in src/components/ directory
+- Keep screens in src/screens/ directory
+- Keep stores in src/stores/ directory
+- Keep API calls in src/api/ directory
+- Use absolute imports with path mapping
+- Follow mobile-first responsive design principles
+- Handle safe areas properly with react-native-safe-area-context
+- Use React Navigation for navigation
+- Implement proper loading states and error boundaries
+- Optimize for both iOS and Android platforms
+- Use Expo conventions and best practices
+- Structure files: exported component, hooks, helpers, types
+- Make everything modular - each feature should be self-contained with its own components, hooks, and utilities
+- Create a new branch for every feature, bug fix, or significant change (e.g., feature/user-auth, fix/navigation-bug)
+- Keep features isolated and avoid cross-feature dependencies when possible
+- Don't overengineer solutions - keep it simple

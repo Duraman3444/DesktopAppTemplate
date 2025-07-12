@@ -1,0 +1,9 @@
+docs/PROJECT_STRUCTURE.md:- [React Native Documentation](https://reactnative.dev/docs)
+docs/PROJECT_STRUCTURE.md:- [Expo Documentation](https://docs.expo.dev/)
+docs/PROJECT_STRUCTURE.md:- [NativeWind Documentation](https://www.nativewind.dev/)
+docs/PROJECT_STRUCTURE.md:- [Supabase Documentation](https://supabase.com/docs)
+docs/PROJECT_STRUCTURE.md:- [Zustand Documentation](https://zustand-demo.pmnd.rs/)
+docs/DOCUMENTATION_UPDATE_SCRIPT.md:    find docs -name "*.md" -exec grep -H "http" {} \; > docs/external_links.txt
+docs/LOGGING_GUIDE.md:  remoteEndpoint: 'https://your-logging-server.com/logs',
+docs/LOGGING_GUIDE.md:  remoteEndpoint: 'https://your-server.com/api/logs',
+docs/LOGGING_GUIDE.md:  remoteEndpoint: 'https://your-correct-endpoint.com/logs'
