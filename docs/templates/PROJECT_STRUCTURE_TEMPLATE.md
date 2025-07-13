@@ -101,7 +101,7 @@ export const ComponentName: React.FC<Props> = ({ ...props }) => {
 ```
 
 ### Import Order
-1. React and React Native imports
+1. React and Electron imports
 2. Third-party library imports
 3. Internal imports (components, utils, types)
 4. Relative imports

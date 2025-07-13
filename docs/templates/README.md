@@ -145,9 +145,9 @@ All templates support these customizable variables:
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `[PROJECT_NAME]` | Your project name | "MyReactNativeApp" |
-| `[TECH_STACK]` | Technology stack | "React Native, TypeScript, Expo" |
-| `[PLATFORM]` | Target platform | "iOS, Android" |
+| `[PROJECT_NAME]` | Your project name | "Desktop App Template" |
+| `[TECH_STACK]` | Technology stack | "Electron, React, TypeScript, Tailwind CSS" |
+| `[PLATFORM]` | Target platform | "Windows, macOS, Linux" |
 | `[TEAM_SIZE]` | Development team size | "5 developers" |
 | `[CONTACT_EMAIL]` | Project contact | "team@company.com" |
 | `[REPOSITORY_URL]` | Git repository | "https://github.com/user/repo" |
@@ -202,7 +202,7 @@ All templates support these customizable variables:
 - **Text editor** for customization
 
 ### Project Compatibility
-- ✅ **React Native** (with Expo support)
+- ✅ **Electron** (with Forge support)
 - ✅ **Node.js** projects
 - ✅ **Web applications** (React, Vue, Angular)
 - ✅ **Mobile applications** (iOS, Android)

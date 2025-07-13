@@ -122,10 +122,10 @@ prompt_input() {
 # Function to detect project type
 detect_project_type() {
     if [ -f "$PROJECT_ROOT/package.json" ]; then
-        if grep -q "react-native" "$PROJECT_ROOT/package.json"; then
-            echo "React Native"
-        elif grep -q "expo" "$PROJECT_ROOT/package.json"; then
-            echo "Expo React Native"
+        if grep -q "electron" "$PROJECT_ROOT/package.json"; then
+echo "Electron"
+elif grep -q "react" "$PROJECT_ROOT/package.json"; then
+echo "React"
         elif grep -q "react" "$PROJECT_ROOT/package.json"; then
             echo "React"
         elif grep -q "next" "$PROJECT_ROOT/package.json"; then
@@ -312,10 +312,10 @@ EXAMPLES:
     $0
 
     # Quiet mode with all parameters
-    $0 --quiet --project-name "My App" --tech-stack "React Native" --platform "mobile"
+    $0 --quiet --project-name "My App" --tech-stack "Electron" --platform "desktop"
 
     # Set specific parameters and prompt for others
-    $0 --project-name "My App" --tech-stack "React Native"
+    $0 --project-name "My App" --tech-stack "Electron"
 
 TEMPLATE FILES:
     Core Templates:

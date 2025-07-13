@@ -1,9 +1,20 @@
+docs/DOCUMENTATION_TEMPLATE.md:| `[REPOSITORY_URL]` | Git repository URL | "https://github.com/user/repo" |
+docs/DOCUMENTATION_TEMPLATE.md:| `[DEPLOYMENT_URL]` | Live application URL | "https://app.example.com" |
+docs/DOCUMENTATION_TEMPLATE.md:| `[API_BASE_URL]` | API endpoint base URL | "https://api.example.com" |
 docs/PROJECT_STRUCTURE.md:- [Electron Documentation](https://www.electronjs.org/docs)
 docs/PROJECT_STRUCTURE.md:- [React Documentation](https://react.dev/docs)
-docs/PROJECT_STRUCTURE.md:- [NativeWind Documentation](https://www.nativewind.dev/)
-docs/PROJECT_STRUCTURE.md:- [Supabase Documentation](https://supabase.com/docs)
-docs/PROJECT_STRUCTURE.md:- [Zustand Documentation](https://zustand-demo.pmnd.rs/)
-docs/DOCUMENTATION_UPDATE_SCRIPT.md:    find docs -name "*.md" -exec grep -H "http" {} \; > docs/external_links.txt
-docs/LOGGING_GUIDE.md:  remoteEndpoint: 'https://your-logging-server.com/logs',
-docs/LOGGING_GUIDE.md:  remoteEndpoint: 'https://your-server.com/api/logs',
-docs/LOGGING_GUIDE.md:  remoteEndpoint: 'https://your-correct-endpoint.com/logs'
+docs/PROJECT_STRUCTURE.md:- [TypeScript Documentation](https://www.typescriptlang.org/docs)
+docs/PROJECT_STRUCTURE.md:- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+docs/PROJECT_STRUCTURE.md:- [Vite Documentation](https://vitejs.dev/guide) 
+docs/templates/LOGGING_GUIDE_TEMPLATE.md:export LOG_ENDPOINT=https://logs.example.com
+docs/templates/README_TEMPLATE.md:API_URL=http://localhost:3000
+docs/templates/README_TEMPLATE.md:API_URL=https://api.example.com
+docs/templates/README.md:| `[REPOSITORY_URL]` | Git repository | "https://github.com/user/repo" |
+docs/templates/README.md:| `[DEPLOYMENT_URL]` | Live app URL | "https://app.example.com" |
+docs/templates/README.md:| `[API_BASE_URL]` | API endpoint | "https://api.example.com" |
+docs/templates/README.md:| `[BRAINLIFT_DOCUMENT_LINK]` | Source document link | "https://docs.example.com/brainlift" |
+docs/templates/README.md:- **🐛 Bug Reports**: [Create an issue](https://github.com/user/repo/issues)
+docs/templates/README.md:- **💡 Feature Requests**: [Submit a suggestion](https://github.com/user/repo/issues)
+docs/templates/README.md:- **❓ Questions**: [Start a discussion](https://github.com/user/repo/discussions)
+docs/templates/criteria/TECHNICAL_DOCUMENTATION_TEMPLATE.md:APP_URL=http://localhost:3000
+docs/templates/BRAINLIFT_EXAMPLE.md:**Source Document:** https://docs.company.com/evaluation-rubric-v2.pdf
