@@ -2,7 +2,7 @@
 
 ## 📖 Overview
 
-The MyReactNativeApp logging system provides comprehensive logging capabilities for debugging, monitoring, and analytics. It supports multiple log levels, structured data, remote logging, and performance monitoring.
+The Desktop App Template logging system provides comprehensive logging capabilities for debugging, monitoring, and analytics. It supports multiple log levels, structured data, remote logging, and performance monitoring for Electron desktop applications.
 
 ---
 
@@ -166,7 +166,7 @@ if (__DEV__) {
     enableConsole: false,
     minLogLevel: LogLevel.INFO,
     enableRemote: true,
-    remoteEndpoint: process.env.EXPO_PUBLIC_LOGGING_ENDPOINT,
+    remoteEndpoint: process.env.REACT_APP_LOGGING_ENDPOINT,
   });
 }
 ```

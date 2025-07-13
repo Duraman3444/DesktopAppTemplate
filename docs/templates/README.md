@@ -1,6 +1,6 @@
 # Documentation Template System
 
-A comprehensive collection of documentation templates designed for modern software projects, with specialized support for React Native, mobile applications, and project evaluation frameworks.
+A comprehensive collection of documentation templates designed for modern software projects, with specialized support for Electron desktop applications, cross-platform development, and project evaluation frameworks.
 
 ## 🚀 Quick Start
 
@@ -61,7 +61,7 @@ Targeted templates for specific evaluation criteria and project aspects:
 - **One-command initialization** with intelligent project detection
 - **Interactive configuration** with smart defaults
 - **Variable replacement system** for easy customization
-- **Project type detection** (React Native, Expo, Node.js, etc.)
+- **Project type detection** (Electron, Node.js, React, etc.)
 
 ### 📊 Comprehensive Coverage
 - **Technical documentation** for architecture and implementation
@@ -76,11 +76,11 @@ Targeted templates for specific evaluation criteria and project aspects:
 - **Consistent variable system** for easy project-wide customization
 - **Modular design** - use only what you need
 
-### 📱 Mobile-First Design
-- **React Native optimized** with Expo support
-- **Mobile app considerations** throughout all templates
-- **Platform-specific guidance** for iOS and Android
-- **App store preparation** and deployment documentation
+### 🖥️ Desktop-First Design
+- **Electron optimized** with Forge support
+- **Desktop app considerations** throughout all templates
+- **Platform-specific guidance** for Windows, macOS, and Linux
+- **Distribution and deployment** documentation
 
 ### 🧠 Brainlift Integration
 - **Knowledge source tracking** - Link to foundational documents that guided project development
@@ -100,7 +100,7 @@ Targeted templates for specific evaluation criteria and project aspects:
 ```bash
 ./init-templates.sh \
   --project-name "MyApp" \
-  --tech-stack "React Native" \
+  --tech-stack "Electron, React, TypeScript" \
   --platform "mobile" \
   --team-size "5 developers"
 ```
@@ -109,7 +109,7 @@ Targeted templates for specific evaluation criteria and project aspects:
 ```bash
 ./init-templates.sh --quiet \
   --project-name "MyApp" \
-  --tech-stack "React Native"
+  --tech-stack "Electron, React, TypeScript"
 ```
 
 ## 📁 Generated Structure

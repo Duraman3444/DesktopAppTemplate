@@ -75,7 +75,7 @@ All templates use a consistent variable system for easy customization:
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `[PROJECT_NAME]` | Your project name | "MyReactNativeApp" |
+| `[PROJECT_NAME]` | Your project name | "Desktop App Template" |
 | `[TECH_STACK]` | Technology stack | "Electron, React, TypeScript, Tailwind CSS" |
 | `[PLATFORM]` | Target platform | "iOS, Android" |
 | `[TEAM_SIZE]` | Development team size | "5 developers" |

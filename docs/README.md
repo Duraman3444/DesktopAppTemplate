@@ -1,6 +1,6 @@
 # 📚 Documentation Hub
 
-Welcome to the MyReactNativeApp documentation system! This directory contains all project documentation, templates, and automated tools to keep your project well-documented and up-to-date.
+Welcome to the Desktop App Template documentation system! This directory contains all project documentation, templates, and automated tools to keep your project well-documented and up-to-date.
 
 ---
 
