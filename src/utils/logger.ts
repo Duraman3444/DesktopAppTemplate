@@ -1,9 +1,12 @@
 /**
- * Comprehensive Logging Utility for React Native
+ * Comprehensive Logging Utility for Desktop Apps
  * Supports multiple log levels, formatting, and remote logging
  */
 
-import { Platform } from 'react-native';
+// Platform detection for desktop environment
+const Platform = {
+  OS: process.platform, // 'darwin', 'win32', 'linux', etc.
+};
 
 // Log levels
 export enum LogLevel {

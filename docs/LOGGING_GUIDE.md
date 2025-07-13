@@ -93,7 +93,7 @@ logger.navigation('ProfileScreen', { params: { userId: '123' } });
 // Log user interactions
 logger.userAction('button_click', { buttonId: 'submit_form', formType: 'registration' });
 logger.userAction('swipe', { direction: 'left', screenName: 'ProductCarousel' });
-logger.userAction('search', { query: 'react native', resultsCount: 42 });
+logger.userAction('search', { query: 'desktop app', resultsCount: 42 });
 ```
 
 #### **Authentication Logging**
@@ -173,42 +173,55 @@ if (__DEV__) {
 
 ---
 
-## 📱 React Native Integration
+## 🖥️ Desktop App Integration
 
 ### **App.tsx Integration**
 ```typescript
 import React, { useEffect } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import logger from './src/utils/logger';
 import './global.css';
 
 export default function App() {
   useEffect(() => {
-    logger.info('App initialized', { 
-      platform: Platform.OS,
+    logger.info('Desktop app initialized', { 
+      platform: process.platform,
       version: '1.0.0',
       timestamp: Date.now()
     });
     
     // Set up error boundary logging
-    const originalHandler = ErrorUtils.getGlobalHandler();
-    ErrorUtils.setGlobalHandler((error, isFatal) => {
-      logger.fatal('Unhandled error', error, { isFatal });
-      originalHandler(error, isFatal);
-    });
+    const handleError = (error: ErrorEvent) => {
+      logger.fatal('Unhandled error', error.error, { 
+        filename: error.filename,
+        lineno: error.lineno,
+        colno: error.colno 
+      });
+    };
+    
+    window.addEventListener('error', handleError);
+    
+    // Handle unhandled promise rejections
+    const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
+      logger.error('Unhandled promise rejection', event.reason);
+    };
+    
+    window.addEventListener('unhandledrejection', handleUnhandledRejection);
 
     return () => {
       logger.info('App cleanup');
+      window.removeEventListener('error', handleError);
+      window.removeEventListener('unhandledrejection', handleUnhandledRejection);
     };
   }, []);
 
   return (
-    <View className="flex-1 bg-white items-center justify-center">
-      <Text className="text-lg font-bold">Hello React Native + NativeWind!</Text>
-      <Text className="text-blue-500 mt-2">Your app is ready to go! 🚀</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Router>
+      <div className="flex h-screen bg-gray-100">
+        <h1 className="text-lg font-bold">Welcome to Desktop App Template!</h1>
+        <p className="text-blue-500 mt-2">Your desktop app is ready to go! 🚀</p>
+      </div>
+    </Router>
   );
 }
 ```
@@ -216,7 +229,6 @@ export default function App() {
 ### **Component-Level Logging**
 ```typescript
 import React, { useEffect } from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
 import logger from '../utils/logger';
 
 export const UserProfile: React.FC<{ userId: string }> = ({ userId }) => {
@@ -245,11 +257,11 @@ export const UserProfile: React.FC<{ userId: string }> = ({ userId }) => {
   };
 
   return (
-    <View>
-      <TouchableOpacity onPress={handleSaveProfile}>
-        <Text>Save Profile</Text>
-      </TouchableOpacity>
-    </View>
+    <div>
+      <button onClick={handleSaveProfile} className="bg-blue-500 text-white px-4 py-2 rounded">
+        Save Profile
+      </button>
+    </div>
   );
 };
 ```
@@ -515,7 +527,7 @@ logger.info('Data processed', { count: data.length }); // Instead of the full da
 ```typescript
 // Track user journey
 logger.navigation('HomeScreen');
-logger.userAction('search', { query: 'react native' });
+logger.userAction('search', { query: 'desktop app' });
 logger.userAction('filter_applied', { category: 'tutorials' });
 logger.userAction('item_selected', { itemId: '123' });
 logger.navigation('ItemDetailScreen', { itemId: '123' });

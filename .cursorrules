@@ -1,25 +1,35 @@
 # .cursorrules
-- This is a React Native project using Expo
-- Use TypeScript for all files
-- Use NativeWind for styling (Tailwind CSS for React Native)
-- Use Zustand for state management
+- This is a desktop application project using Electron
+- Use TypeScript for all files (main process, renderer process, and preload scripts)
+- Use Tailwind CSS for styling with a desktop-first approach
+- Use Zustand for state management in the renderer process
 - Use React Query for server state management
-- Follow React Native best practices and performance guidelines
-- Use functional components with hooks
+- Follow Electron best practices and security guidelines
+- Use functional components with hooks for React components
 - Prefer const assertions and proper typing
 - Keep components in src/components/ directory
-- Keep screens in src/screens/ directory
+- Keep screens/windows in src/screens/ directory
 - Keep stores in src/stores/ directory
 - Keep API calls in src/api/ directory
+- Keep Electron main process files in src/main/ directory
+- Keep preload scripts in src/preload/ directory
 - Use absolute imports with path mapping
-- Follow mobile-first responsive design principles
-- Handle safe areas properly with react-native-safe-area-context
-- Use React Navigation for navigation
+- Follow desktop-first responsive design principles
+- Handle window management and system integration properly
+- Use proper IPC (Inter-Process Communication) between main and renderer processes
 - Implement proper loading states and error boundaries
-- Optimize for both iOS and Android platforms
-- Use Expo conventions and best practices
+- Optimize for desktop performance (Windows, macOS, Linux)
+- Use Electron conventions and best practices
+- Implement proper security measures (disable node integration, use context isolation)
+- Handle file system operations through secure IPC channels
 - Structure files: exported component, hooks, helpers, types
 - Make everything modular - each feature should be self-contained with its own components, hooks, and utilities
-- Create a new branch for every feature, bug fix, or significant change (e.g., feature/user-auth, fix/navigation-bug)
+- Create a new branch for every feature, bug fix, or significant change (e.g., feature/user-auth, fix/window-management)
 - Keep features isolated and avoid cross-feature dependencies when possible
 - Don't overengineer solutions - keep it simple
+- Use electron-builder for packaging and distribution
+- Implement proper auto-updater functionality
+- Handle system tray integration when needed
+- Follow OS-specific UI patterns and conventions
+- Implement keyboard shortcuts and menu systems
+- Use native OS dialogs and notifications when appropriate

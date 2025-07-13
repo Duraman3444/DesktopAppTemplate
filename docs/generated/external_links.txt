@@ -1,5 +1,5 @@
-docs/PROJECT_STRUCTURE.md:- [React Native Documentation](https://reactnative.dev/docs)
-docs/PROJECT_STRUCTURE.md:- [Expo Documentation](https://docs.expo.dev/)
+docs/PROJECT_STRUCTURE.md:- [Electron Documentation](https://www.electronjs.org/docs)
+docs/PROJECT_STRUCTURE.md:- [React Documentation](https://react.dev/docs)
 docs/PROJECT_STRUCTURE.md:- [NativeWind Documentation](https://www.nativewind.dev/)
 docs/PROJECT_STRUCTURE.md:- [Supabase Documentation](https://supabase.com/docs)
 docs/PROJECT_STRUCTURE.md:- [Zustand Documentation](https://zustand-demo.pmnd.rs/)

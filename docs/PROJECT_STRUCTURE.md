@@ -1,85 +1,63 @@
-# Project Structure Documentation
+# 📁 Project Structure Documentation
 
-## 📱 MyReactNativeApp
-
+## 🌟 Project Overview
+**Framework:** Electron Desktop App with React
+**Language:** TypeScript
 **Version:** 1.0.0
-**Last Updated:** 2025-07-12
-**Framework:** React Native with Expo  
-**Language:** TypeScript  
 
----
-
-## 🏗️ Directory Structure
+## 📂 Directory Structure
 
 ```
-MyReactNativeApp/
-├── 📁 src/                     # Source code directory
-│   ├── 📁 api/                 # API calls and Supabase integration
-│   │   └── supabase.ts         # Supabase client configuration
-│   ├── 📁 components/          # Reusable UI components
-│   ├── 📁 screens/             # Screen components
-│   ├── 📁 stores/              # Zustand state management
-│   │   └── authStore.ts        # Authentication state store
-│   ├── 📁 utils/               # Utility functions and helpers
-│   ├── 📁 types/               # TypeScript type definitions
-│   │   └── nativewind.d.ts     # NativeWind TypeScript support
-│   └── 📁 constants/           # App constants and configuration
-├── 📁 assets/                  # Static assets (images, fonts, etc.)
-├── 📁 docs/                    # Project documentation
-├── 📁 ios/                     # iOS native code and configuration
-├── 📁 .expo/                   # Expo configuration and cache
-├── 📄 App.tsx                  # Main application entry point
+DesktopAppTemplate/
+├── 📁 assets/                  # Static assets (icons, images)
+├── 📁 dist/                    # Built application files
+├── 📁 docs/                    # Documentation files
+├── 📁 src/                     # Source code
+│   ├── 📁 main/                # Electron main process
+│   ├── 📁 preload/             # Preload scripts
+│   ├── 📁 components/          # React components
+│   ├── 📁 screens/             # Application screens
+│   ├── 📁 stores/              # State management
+│   ├── 📁 api/                 # API clients
+│   ├── 📁 types/               # TypeScript definitions
+│   ├── 📁 utils/               # Utility functions
+│   └── 📁 constants/           # App constants
 ├── 📄 package.json             # Dependencies and scripts
-├── 📄 app.json                 # Expo app configuration
-├── 📄 metro.config.js          # Metro bundler configuration
-├── 📄 tailwind.config.js       # Tailwind CSS configuration
-├── 📄 global.css               # Global NativeWind styles
 ├── 📄 tsconfig.json            # TypeScript configuration
-├── 📄 .cursorrules             # AI development assistance rules
-├── 📄 env.example              # Environment variables template
-└── 📄 nativewind-env.d.ts      # NativeWind environment types
+├── 📄 vite.config.ts           # Vite build configuration
+├── 📄 forge.config.js          # Electron Forge configuration
+├── 📄 tailwind.config.js       # Tailwind CSS configuration
+├── 📄 postcss.config.js        # PostCSS configuration
+├── 📄 index.html               # Main HTML file
+├── 📄 App.tsx                  # Main React component
+└── 📄 README.md                # Project documentation
 ```
 
----
+## 🛠️ Technology Stack
 
-## 🔧 Technology Stack
-
-### **Core Technologies**
-- **React Native**: Cross-platform mobile framework
-- **Expo**: Development platform and toolchain
-- **TypeScript**: Static type checking
-
-### **Styling**
-- **NativeWind**: Tailwind CSS for React Native
+### Core Technologies
+- **Electron**: Cross-platform desktop application framework
+- **React**: UI framework with TypeScript
+- **TypeScript**: Type-safe JavaScript development
+- **Vite**: Fast build tool and development server
 - **Tailwind CSS**: Utility-first CSS framework
 
-### **State Management**
+### State Management & Data
 - **Zustand**: Lightweight state management
-- **React Query**: Server state management
+- **React Query**: Server state management and caching
+- **Electron Store**: Persistent desktop storage
 
-### **Backend & Database**
-- **Supabase**: Backend-as-a-Service
-  - Authentication
-  - PostgreSQL database
-  - Real-time subscriptions
-
-### **Navigation**
-- **React Navigation**: Navigation library for React Native
-
-### **Development Tools**
-- **Metro**: JavaScript bundler
-- **ESLint**: Code linting
-- **Prettier**: Code formatting
-
----
+### Development Tools
+- **Electron Forge**: Packaging and distribution
+- **ESLint**: Code linting and formatting
+- **PostCSS**: CSS processing and optimization
 
 ## 📋 File Conventions
 
-### **Component Structure**
+### Component Structure
 ```typescript
-// src/components/Button/Button.tsx
+// src/components/Button.tsx
 import React from 'react';
-import { TouchableOpacity, Text } from 'react-native';
 
 interface ButtonProps {
   title: string;
@@ -89,37 +67,39 @@ interface ButtonProps {
 
 export const Button: React.FC<ButtonProps> = ({ title, onPress, variant = 'primary' }) => {
   return (
-    <TouchableOpacity 
-      className={`p-4 rounded-lg ${variant === 'primary' ? 'bg-blue-500' : 'bg-gray-300'}`}
-      onPress={onPress}
+    <button
+      onClick={onPress}
+      className={`px-4 py-2 rounded-md ${
+        variant === 'primary' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'
+      }`}
     >
-      <Text className={`text-center font-medium ${variant === 'primary' ? 'text-white' : 'text-gray-700'}`}>
-        {title}
-      </Text>
-    </TouchableOpacity>
+      {title}
+    </button>
   );
 };
 ```
 
-### **Screen Structure**
+### Screen Structure
 ```typescript
-// src/screens/HomeScreen/HomeScreen.tsx
+// src/screens/HomeScreen.tsx
 import React from 'react';
-import { View, Text } from 'react-native';
-import { useAuthStore } from '../stores/authStore';
+import { Button } from '../components/Button';
 
 export const HomeScreen: React.FC = () => {
-  const { user } = useAuthStore();
+  const handleButtonPress = () => {
+    console.log('Button pressed!');
+  };
 
   return (
-    <View className="flex-1 justify-center items-center">
-      <Text className="text-xl font-bold">Welcome, {user?.email}!</Text>
-    </View>
+    <div className="flex-1 p-6">
+      <h1 className="text-2xl font-bold mb-4">Welcome to Desktop App</h1>
+      <Button title="Click Me" onPress={handleButtonPress} />
+    </div>
   );
 };
 ```
 
-### **Store Structure**
+### Store Structure
 ```typescript
 // src/stores/exampleStore.ts
 import { create } from 'zustand';
@@ -137,181 +117,137 @@ export const useExampleStore = create<ExampleState>((set) => ({
 }));
 ```
 
----
+## 🚀 Development Workflow
 
-## 🚀 Getting Started
-
-### **Prerequisites**
-- Node.js (v18+)
-- npm or yarn
-- Expo CLI
-- iOS Simulator (Mac) or Android Emulator
-
-### **Installation**
+### Installation
 ```bash
 # Install dependencies
 npm install
 
-# Start development server
-npx expo start
-
-# Run on iOS Simulator
-npx expo start --ios
-
-# Run on Android Emulator
-npx expo start --android
+# Install Electron dependencies
+npm run postinstall
 ```
 
-### **Environment Setup**
-1. Copy `env.example` to `.env`
-2. Fill in your Supabase credentials:
-   ```bash
-   EXPO_PUBLIC_SUPABASE_URL=your-supabase-url
-   EXPO_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
-   ```
+### Development Commands
+```bash
+# Start development server
+npm run dev
 
----
+# Build for production
+npm run build
+
+# Package application
+npm run package
+
+# Create distributable packages
+npm run make
+```
+
+### Environment Variables
+```bash
+# .env file
+REACT_APP_SUPABASE_URL=your-supabase-url
+REACT_APP_SUPABASE_ANON_KEY=your-supabase-anon-key
+NODE_ENV=development
+```
 
 ## 📦 Package Management
 
-### **Adding Dependencies**
+### Installing New Dependencies
 ```bash
-# React Native compatible package
-npx expo install package-name
-
-# Standard npm package
+# Install runtime dependencies
 npm install package-name
 
-# Development dependency
+# Install development dependencies
 npm install --save-dev package-name
 ```
 
-### **Key Dependencies**
-- `@react-navigation/native` - Navigation
-- `@supabase/supabase-js` - Backend integration
-- `zustand` - State management
-- `@tanstack/react-query` - Server state
-- `nativewind` - Styling
-- `react-native-safe-area-context` - Safe area handling
+### Desktop-specific Dependencies
+- **electron**: Main framework
+- **electron-forge**: Build and packaging
+- **electron-store**: Persistent storage
+- **electron-updater**: Auto-update functionality
 
----
+## 🔧 Build Process
 
-## 🔄 Development Workflow
+### Development Build
+- Uses Vite for fast development server
+- Hot module replacement enabled
+- TypeScript compilation
+- CSS processing with PostCSS
 
-### **Branch Strategy**
-- `main` - Production ready code
-- `develop` - Development branch
-- `feature/*` - Feature branches
-- `fix/*` - Bug fix branches
+### Production Build
+- Optimized bundle creation
+- Asset optimization
+- TypeScript compilation
+- Electron packaging
 
-### **Coding Standards**
-- Use TypeScript for all files
-- Follow React Native best practices
-- Use functional components with hooks
-- Implement proper error handling
-- Write clean, self-documenting code
+## 📱 Desktop Features
 
-### **Performance Guidelines**
-- Optimize images and assets
-- Use React.memo for expensive components
-- Implement lazy loading where appropriate
-- Monitor bundle size
-- Profile performance regularly
+### Native Integration
+- File system access
+- Native menus and shortcuts
+- System dialogs
+- Auto-updater
+- Cross-platform compatibility
 
----
+### IPC Communication
+- Secure main-renderer communication
+- Context isolation
+- Preload scripts for security
 
-## 🧪 Testing Strategy
+## 🔍 Code Quality
 
-### **Testing Tools** (To be implemented)
-- Jest - Unit testing
-- React Native Testing Library - Component testing
-- Detox - E2E testing
+### Linting Configuration
+- ESLint for code quality
+- TypeScript strict mode
+- Prettier for formatting
+- Desktop-specific best practices
 
-### **Testing Structure**
-```
-src/
-├── components/
-│   └── Button/
-│       ├── Button.tsx
-│       └── Button.test.tsx
-└── screens/
-    └── HomeScreen/
-        ├── HomeScreen.tsx
-        └── HomeScreen.test.tsx
-```
+### Testing Strategy
+- Unit tests for business logic
+- Integration tests for IPC
+- E2E tests for user workflows
+- Performance monitoring
 
----
+## 🛡️ Security Considerations
 
-## 📱 Platform Considerations
+### Electron Security
+- Context isolation enabled
+- Node integration disabled
+- Secure IPC channels
+- Content Security Policy
 
-### **iOS Specific**
-- Handle safe areas properly
-- Test on multiple device sizes
-- Consider iOS design guidelines
+### Data Protection
+- Secure storage practices
+- Encrypted user data
+- Safe file handling
+- Cross-platform security
 
-### **Android Specific**
-- Handle navigation gestures
-- Test on different Android versions
-- Consider Material Design principles
+## 🚀 Deployment
 
----
+### Desktop Distribution
+- Windows: .exe installer
+- macOS: .dmg and .app bundle
+- Linux: .deb and .rpm packages
 
-## 🔐 Security Best Practices
+### Auto-updater
+- Automatic update checks
+- Background downloads
+- User notification system
 
-- Never commit sensitive data
-- Use environment variables for secrets
-- Implement proper authentication
-- Validate user inputs
-- Use HTTPS for all API calls
-- Follow OWASP mobile security guidelines
+## 📖 Documentation
 
----
+### File Documentation
+- Component documentation
+- API documentation
+- Architecture guides
+- Deployment guides
 
-## 📊 Monitoring & Analytics
+## 🔗 External Resources
 
-### **Performance Monitoring**
-- React Native Performance Monitor
-- Flipper integration
-- Custom performance metrics
-
-### **Error Tracking** (To be implemented)
-- Sentry for error tracking
-- Custom error boundaries
-- Logging system integration
-
----
-
-## 🚢 Deployment
-
-### **Build Process**
-```bash
-# Development build
-npx expo start
-
-# Production build
-eas build --platform all
-
-# Submit to app stores
-eas submit --platform all
-```
-
-### **Environment Configuration**
-- Development: Local development
-- Staging: Pre-production testing
-- Production: Live app store versions
-
----
-
-## 📚 Additional Resources
-
-- [React Native Documentation](https://reactnative.dev/docs)
-- [Expo Documentation](https://docs.expo.dev/)
-- [NativeWind Documentation](https://www.nativewind.dev/)
-- [Supabase Documentation](https://supabase.com/docs)
-- [Zustand Documentation](https://zustand-demo.pmnd.rs/)
-
----
-
-**Last Updated:** 2025-07-12
-**Maintainer:** Development Team  
-**Next Review:** ${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString()} 
+- [Electron Documentation](https://www.electronjs.org/docs)
+- [React Documentation](https://react.dev/docs)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Vite Documentation](https://vitejs.dev/guide) 

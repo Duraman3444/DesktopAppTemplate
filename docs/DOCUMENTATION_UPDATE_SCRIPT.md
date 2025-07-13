@@ -45,7 +45,7 @@ chmod +x update-docs.sh
 ```bash
 #!/bin/bash
 
-# Documentation Update Script for React Native Project
+# Documentation Update Script for Desktop App Project
 # Run this script monthly or after major changes
 
 echo "🔄 Starting documentation update process..."
@@ -77,7 +77,7 @@ update_project_structure() {
     echo "🏗️ Updating project structure..."
     
     # Generate current directory structure
-    tree -I 'node_modules|.git|.expo' > docs/current_structure.txt
+    tree -I 'node_modules|.git|dist|build' > docs/current_structure.txt
     
     echo "✅ Project structure updated"
 }
@@ -100,7 +100,7 @@ update_performance_metrics() {
     echo "⚡ Updating performance metrics..."
     
     # Bundle size analysis
-    npx expo export --clear > docs/bundle_analysis.txt 2>&1 || echo "Bundle analysis failed" > docs/bundle_analysis.txt
+    npm run build > docs/bundle_analysis.txt 2>&1 || echo "Build analysis failed" > docs/bundle_analysis.txt
     
     echo "✅ Performance metrics updated"
 }
